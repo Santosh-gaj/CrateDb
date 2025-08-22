@@ -6,6 +6,7 @@ from app.routes.transaction_routes import transaction_bp
 from app.routes.return_bp import return_bp
 from flask_cors import CORS
 import os
+from main import app
 
 app = Flask(__name__)
 
@@ -28,6 +29,7 @@ with app.app_context():
     db.create_all()
 
 if __name__ == "__main__":
-   port = int(os.environ.get("PORT", 5000))
-   app.run(debug=False, host="0.0.0.0", port=port)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host="0.0.0.0", port=port)
     
